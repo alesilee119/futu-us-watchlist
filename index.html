@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
+    <meta name="theme-color" content="#080a0e" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="robots" content="noindex" />
+    <meta
+      name="description"
+      content="Futu US watchlist with the latest price, change, and trading status for each symbol."
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="US Watchlist" />
+    <title>Futu US Watchlist</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <script type="module" crossorigin src="./assets/index-2HWBlyje.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-j_aUx_4S.css">
+  </head>
+  <body>
+    <div class="shell">
+      <header class="hero">
+        <div class="hero-top">
+          <p class="eyebrow" id="eyebrow">Futu OpenAPI</p>
+          <button type="button" class="refresh" id="refresh">Refresh</button>
+        </div>
+        <h1>Futu US Watchlist</h1>
+        <div class="session-row">
+          <p class="session unknown" id="session" title="">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="session-label">Loading session…</span>
+          </p>
+          <p class="market-date" id="market-date"></p>
+        </div>
+        <p class="updated" id="updated">Loading quotes from data/watchlist.json…</p>
+        <p class="freshness" id="freshness"></p>
+        <p class="checked" id="checked"></p>
+        <p class="feed-note" id="feed-note">
+          Rechecking the file every 45 seconds is not a live Futu feed.
+        </p>
+      </header>
+
+      <section class="strip" id="summary" aria-label="Watchlist summary" aria-busy="true"></section>
+
+      <section class="theme-block" id="themes" hidden>
+        <div class="theme-head">
+          <h2>Themes</h2>
+          <p class="theme-note">Labels only, not priced</p>
+        </div>
+        <ul id="theme-list"></ul>
+      </section>
+
+      <div class="toolbar">
+        <div class="search-wrap">
+          <label class="sr-only" for="search">Search by ticker or name</label>
+          <input
+            id="search"
+            type="search"
+            placeholder="Search ticker or name"
+            autocomplete="off"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            enterkeyhint="search"
+            aria-controls="list"
+          />
+          <button type="button" class="clear" id="clear" hidden aria-label="Clear search">×</button>
+        </div>
+        <div class="sort-row">
+          <div class="sorts" id="sorts" role="radiogroup" aria-label="Sort watchlist">
+            <button type="button" role="radio" data-sort="change" aria-checked="true">Change %</button>
+            <button type="button" role="radio" data-sort="name" aria-checked="false">Name</button>
+            <button type="button" role="radio" data-sort="price" aria-checked="false">Price</button>
+            <button type="button" role="radio" data-sort="volume" aria-checked="false">Volume</button>
+          </div>
+          <button type="button" class="dir" id="direction" aria-label="Sort high to low">↓</button>
+        </div>
+      </div>
+
+      <p class="result-line" id="result-line"></p>
+      <div class="banner" id="banner" hidden role="status"></div>
+      <p class="sr-only" id="live" aria-live="polite"></p>
+
+      <h2 class="sr-only" id="list-heading">Symbols</h2>
+      <main id="list" class="list" aria-labelledby="list-heading" aria-busy="true">
+        <article class="card skeleton" aria-hidden="true">
+          <div class="sk sk-lg"></div>
+          <div class="sk sk-md"></div>
+          <div class="sk"></div>
+        </article>
+        <article class="card skeleton" aria-hidden="true">
+          <div class="sk sk-lg"></div>
+          <div class="sk sk-md"></div>
+          <div class="sk"></div>
+        </article>
+        <article class="card skeleton" aria-hidden="true">
+          <div class="sk sk-lg"></div>
+          <div class="sk sk-md"></div>
+          <div class="sk"></div>
+        </article>
+      </main>
+      <p class="empty" id="empty" hidden></p>
+
+      <footer class="foot">
+        <p id="foot-source">Prices load from data/watchlist.json. Themes are labels.</p>
+      </footer>
+    </div>
+    <noscript>
+      <p class="noscript">JavaScript is required to load data/watchlist.json.</p>
+    </noscript>
+  </body>
+</html>
