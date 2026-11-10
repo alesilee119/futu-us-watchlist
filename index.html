@@ -18,8 +18,9 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
-    <script type="module" crossorigin src="./assets/index-2HWBlyje.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-j_aUx_4S.css">
+    <script type="module" crossorigin src="./assets/index-2HWBlyje.js?v=3"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-j_aUx_4S.css" />
+    <link rel="stylesheet" href="./assets/chart.css?v=1" />
   </head>
   <body>
     <div class="shell">
@@ -40,7 +41,8 @@
         <p class="freshness" id="freshness"></p>
         <p class="checked" id="checked"></p>
         <p class="feed-note" id="feed-note">
-          Rechecking the file every 45 seconds is not a live Futu feed.
+          Rechecking the file every 45 seconds is not a live Futu feed. The snapshot is
+          replaced about twice a day, around 12:00 p.m. and 4:00 p.m. Eastern.
         </p>
       </header>
 
@@ -52,6 +54,22 @@
           <p class="theme-note">Labels only, not priced</p>
         </div>
         <ul id="theme-list"></ul>
+      </section>
+
+      <section class="chart-block" id="chart-block" aria-labelledby="chart-heading">
+        <div class="chart-head">
+          <h2 id="chart-heading">Change vs previous close</h2>
+        </div>
+        <p class="chart-asof" id="chart-asof">Snapshot <time id="chart-time">Loading…</time></p>
+        <div class="bar-row scale-row" id="chart-scale" hidden></div>
+        <div
+          class="chart"
+          id="chart"
+          role="list"
+          aria-label="Percent change versus previous close"
+          aria-busy="true"
+        ></div>
+        <p class="chart-foot" id="chart-foot"></p>
       </section>
 
       <div class="toolbar">
@@ -112,5 +130,6 @@
     <noscript>
       <p class="noscript">JavaScript is required to load data/watchlist.json.</p>
     </noscript>
+    <script src="./assets/chart.js?v=1"></script>
   </body>
 </html>

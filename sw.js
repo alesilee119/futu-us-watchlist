@@ -1,7 +1,7 @@
 // Bump CACHE_VERSION when the app shell changes. data/watchlist.json is
 // network-first under a stable cache key, so a new snapshot replaces the old
 // one instead of sticking around for the life of an older cache name.
-const CACHE_VERSION = "v2";
+const CACHE_VERSION = "v3";
 const CACHE_NAME = `futu-us-watchlist-${CACHE_VERSION}`;
 
 self.addEventListener("install", () => {

@@ -1,0 +1,234 @@
+.chart-block {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  margin-top: 12px;
+  padding: 14px 12px 12px;
+}
+
+.chart-head {
+  align-items: baseline;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.chart-block h2 {
+  color: var(--faint);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.chart-asof,
+.chart-foot {
+  color: var(--muted);
+  margin: 0;
+}
+
+.chart-asof {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.chart-asof time {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-foot {
+  color: var(--faint);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  margin-top: 8px;
+}
+
+.chart {
+  display: grid;
+  margin-top: 2px;
+  position: relative;
+}
+
+.bar-row {
+  align-items: center;
+  border-radius: 8px;
+  color: inherit;
+  column-gap: 6px;
+  display: grid;
+  grid-template-columns: minmax(2.8rem, 3.7rem) minmax(0, 1fr) 4.35rem;
+  min-height: 24px;
+  padding: 0 2px;
+  text-decoration: none;
+}
+
+a.bar-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+a.bar-row:active {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.bar-ticker,
+.bar-pct,
+.scale-track {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.bar-ticker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bar-pct {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.bar-track,
+.scale-track {
+  min-width: 0;
+  position: relative;
+}
+
+.bar-track {
+  background: rgba(236, 240, 248, 0.045);
+  border-radius: 999px;
+  height: 12px;
+}
+
+.bar-axis {
+  background: rgba(236, 240, 248, 0.45);
+  bottom: -8px;
+  left: 50%;
+  position: absolute;
+  top: -8px;
+  width: 1px;
+}
+
+.bar {
+  border-radius: 999px;
+  height: 8px;
+  position: absolute;
+  top: 2px;
+}
+
+.bar.up {
+  background: var(--up);
+  left: 50%;
+  min-width: 2px;
+}
+
+.bar.down {
+  background: var(--down);
+  min-width: 2px;
+  right: 50%;
+}
+
+.bar.flat {
+  background: var(--flat);
+  border-radius: 50%;
+  height: 5px;
+  left: 50%;
+  margin-left: -2.5px;
+  min-width: 0;
+  top: 3.5px;
+  width: 5px;
+}
+
+.chart-block .up {
+  color: var(--up);
+}
+
+.chart-block .down {
+  color: var(--down);
+}
+
+.chart-block .flat {
+  color: var(--flat);
+}
+
+.scale-row {
+  min-height: 16px;
+  pointer-events: none;
+}
+
+.scale-track {
+  color: var(--faint);
+  display: flex;
+  font-size: 0.62rem;
+  font-weight: 600;
+  justify-content: space-between;
+  letter-spacing: 0;
+}
+
+.chart-loading {
+  color: var(--faint);
+  font-size: 0.85rem;
+  margin: 8px 2px 4px;
+}
+
+@media (width <= 359px) {
+  .chart-block {
+    padding-inline: 10px;
+  }
+
+  .bar-row {
+    column-gap: 4px;
+    grid-template-columns: minmax(2.5rem, 3.25rem) minmax(0, 1fr) 3.95rem;
+    min-height: 22px;
+  }
+
+  .bar-ticker,
+  .bar-pct {
+    font-size: 0.66rem;
+  }
+
+  .chart-asof {
+    font-size: 0.84rem;
+  }
+}
+
+@media (width >= 720px) {
+  .bar-row {
+    column-gap: 8px;
+    grid-template-columns: 4.2rem minmax(0, 1fr) 4.6rem;
+    min-height: 26px;
+  }
+
+  .bar-ticker,
+  .bar-pct {
+    font-size: 0.78rem;
+  }
+
+  .bar-track {
+    height: 14px;
+  }
+
+  .bar {
+    height: 10px;
+  }
+
+  .bar.flat {
+    height: 6px;
+    margin-left: -3px;
+    top: 4px;
+    width: 6px;
+  }
+}
+
+@media (hover: hover) {
+  a.bar-row:hover .bar.up,
+  a.bar-row:hover .bar.down {
+    filter: brightness(1.12);
+  }
+}
